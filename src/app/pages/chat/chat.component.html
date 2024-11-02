@@ -1,0 +1,19 @@
+<div class="grid h-full">
+  <div class="col-2 h-full border-2 border-solid">
+    <div>
+      <h4 class="text-center">
+        Chats
+        <mat-icon class="cursor-pointer" [matMenuTriggerFor]="menu"
+          >chat</mat-icon
+        >
+      </h4>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="addNewChat()">
+          <mat-icon>add</mat-icon>
+          <span>Create New Chat</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+  <div class="col">Another column with full height</div>
+</div>
