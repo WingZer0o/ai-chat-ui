@@ -11,5 +11,7 @@ import { MaterialModule } from '../../shared/material.module';
 export class ChatComponent implements OnInit {
   ngOnInit(): void {}
 
-  public addNewChat(): void {}
+  public addNewChat(): void {
+    
+  }
 }
