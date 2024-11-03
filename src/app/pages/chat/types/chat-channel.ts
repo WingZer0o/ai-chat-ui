@@ -1,9 +1,11 @@
 export class ChatChannel {
-    public id!: string;
-    public name!: string;
+  public id!: string;
+  public name!: string;
+  public controlsVisible!: boolean;
 
-    constructor(id: string, name: string) {
-        this.id = id;
-        this.name = name;
-    }
+  constructor(id: string, name: string, controlsVisible: boolean) {
+    this.id = id;
+    this.name = name;
+    this.controlsVisible = controlsVisible;
+  }
 }

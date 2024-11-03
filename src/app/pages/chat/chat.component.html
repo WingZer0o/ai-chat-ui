@@ -1,27 +1,41 @@
 <div class="grid h-full">
   <div class="col-3 h-full border-2 border-solid">
-      <h4 class="text-center">
-        Chats
-        <mat-icon class="cursor-pointer" [matMenuTriggerFor]="menu"
-          >chat</mat-icon
+    <h4 class="text-center">
+      Chats
+      <mat-icon class="cursor-pointer" [matMenuTriggerFor]="menu"
+        >chat</mat-icon
+      >
+    </h4>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="addNewChat()">
+        <mat-icon>add</mat-icon>
+        <span>Create New Chat</span>
+      </button>
+    </mat-menu>
+    <mat-list>
+      @for (chatChannel of chatChannels; track chatChannel.id) {
+      <mat-list-item
+        (mouseenter)="toggleChatChannelControlsVisible(chatChannel.id)"
+        (mouseleave)="toggleChatChannelControlsInvisible(chatChannel.id)"
+      >
+        <mat-icon
+          [ngClass]="!chatChannel.controlsVisible ? 'hidden' : 'block'"
+          class="mb-3"
+          matListItemIcon
+          (click)="deleteChannel(chatChannel.id)"
+          >delete</mat-icon
         >
-      </h4>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="addNewChat()">
-          <mat-icon>add</mat-icon>
-          <span>Create New Chat</span>
-        </button>
-      </mat-menu>
-      <mat-list>
-        @for (chatChannel of chatChannels; track chatChannel.id) {
-          <mat-list-item>
-            <mat-icon class="mb-3" matListItemIcon (click)="deleteChannel(chatChannel)">delete</mat-icon>
-            <h4 matListItemTitle>{{chatChannel.name}}</h4>
-            <mat-icon class="mb-3" matListItemIcon>edit</mat-icon>
-          </mat-list-item>
-        }
-      </mat-list>
-    </div>
-    
-    <div class="col">Another column with full height</div>
+        <mat-icon
+          [ngClass]="!chatChannel.controlsVisible ? 'hidden' : 'block'"
+          class="mb-3"
+          matListItemIcon
+          >edit</mat-icon
+        >
+        <h4 matListItemTitle>{{ chatChannel.name }}</h4>
+      </mat-list-item>
+      }
+    </mat-list>
   </div>
+
+  <div class="col">Another column with full height</div>
+</div>
